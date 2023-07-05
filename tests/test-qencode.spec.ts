@@ -31,4 +31,4 @@ test('Test Qencode Login', async ({ page }) => {
   // Expects the URL to contain intro.
   await expect(page).toHaveURL(/.*dashboard/);
 
-});
+}); 
