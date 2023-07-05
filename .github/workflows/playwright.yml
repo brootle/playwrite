@@ -8,6 +8,12 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    env_var:  # define environment variables for all steps
+      API_KEY: ${{ vars.API_KEY }} 
+      QENCODE_EMAIL: ${{ vars.QENCODE_EMAIL }}
+      QENCODE_PASSWORD: ${{ vars.QENCODE_PASSWORD }}
+
     steps:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
