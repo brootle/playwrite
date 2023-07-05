@@ -18,4 +18,9 @@ the video is recordered, it's available when revieing test results.
 
 The test in `test-qencode-api.spec.ts` file is testing Qencode API. Following steps are tested: get access token, create task, start transcoding and get status.
 
+Additionally, this repository is configured to use Github Actions to run tests everytime some changes are commited. 
+See about using Github Actions with Playwrite here https://playwright.dev/docs/ci-intro and how to define enviroment 
+variables in workflow file here https://docs.github.com/en/actions/learn-github-actions/variables The file with workflow 
+is in `.github/workflows/playwright.yml`
+
 For more details on Playwrite check documentation here https://playwright.dev/docs/intro
