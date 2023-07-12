@@ -6,7 +6,28 @@ import axios from 'axios';
 
 test('Should be able to run transcoding task via Qencode API', async () => {
 
-    const requestUrl = "https://api.qencode.com/v1/"
+    // request url by default
+    let requestUrl = "https://api.qencode.com/v1/"
+
+    const QENODE_ENV = process.env.QENODE_ENV;
+
+    // check for environment
+    if (typeof QENODE_ENV !== 'undefined') {
+        
+        switch (QENODE_ENV) {
+            case 'dev':
+                requestUrl = "https://api-dev.qencode.com/v1/"
+                break;
+            case 'qa':
+                requestUrl = "https://api-qa.qencode.com/v1/"
+                break;
+            case 'stage':
+                requestUrl = "https://api-stage.qencode.com/v1/"
+                break;                    
+            default:
+                console.log(QENODE_ENV + ' environment not recognized');
+        }            
+    }     
 
     const API_KEY = process.env.API_KEY;
 
